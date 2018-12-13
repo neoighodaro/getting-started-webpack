@@ -7,6 +7,7 @@ How you too can get started using Webpack in your development.
 - [Part 1](#)
 - [Part 2](#)
 - [Part 3](#)
+- [Part 4](#)
 
 ## Getting Started
 
