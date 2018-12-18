@@ -1,7 +1,9 @@
 import generateRandomString from './utilities/random';
 import './style.scss';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const randomString = `Random String: <span>${generateRandomString()}</span>`;
-  window.setTimeout(() => (document.getElementsByTagName('h1')[0].innerHTML = randomString), 0);
+document.addEventListener('DOMContentLoaded', function() {
+  var randomString = 'Random String: <span>' + generateRandomString() + '</span>';
+  window.setTimeout(function() {
+    document.getElementsByTagName('h1')[0].innerHTML = randomString;
+  }, 0);
 });
