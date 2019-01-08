@@ -23,19 +23,22 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.(png|jp(e*)g|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8000,
+              name: 'images/[hash]-[name].[ext]'
+            }
+          }
+        ]
       }
     ]
   },
-  plugins: [],
-  optimization: {
-    minimizer: []
-  }
-};
-
-if (env === 'production') {
-  module.exports.optimization.minimizer.push(new UglifyJsPlugin());
-
-  module.exports.plugins.push(
+  plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css'
@@ -45,5 +48,8 @@ if (env === 'production') {
         preset: ['default', { discardComments: { removeAll: true } }]
       }
     })
-  );
-}
+  ],
+  optimization: {
+    minimizer: [new UglifyJsPlugin()]
+  }
+};
