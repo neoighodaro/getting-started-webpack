@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  padding: 0 16px;
+  margin: 50px auto 0;
+
+  h1 {
+    margin: 0;
+    text-align: center;
+    color: #272727;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+      'Helvetica Neue', sans-serif;
+
+    span {
+      color: #999;
+    }
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+#header_image {
+  max-width: 500px;
+  margin-bottom: 100px;
+}
+
+#password_icon,
+#copy_icon {
+  width: 20px;
+}
+
+#random_password {
+  display: inline-block;
+  margin: 0 10px;
+}
