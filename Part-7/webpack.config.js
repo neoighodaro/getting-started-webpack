@@ -5,6 +5,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const PurgeCssPlugin = require('purgecss-webpack-plugin');
+const HtmlPlugin = require('html-webpack-plugin');
 
 const env = process.env.NODE_ENV;
 
@@ -14,8 +15,8 @@ module.exports = {
     app: [path.resolve(__dirname + '/src/js/app.js'), path.resolve(__dirname + '/src/scss/app.scss')]
   },
   output: {
-    path: path.resolve(__dirname + '/dist/assets'),
-    filename: 'js/[name].js'
+    path: path.resolve(__dirname + '/dist'),
+    filename: 'assets/js/[name]-[contenthash].js'
   },
   module: {
     rules: [
@@ -47,8 +48,7 @@ module.exports = {
             loader: 'url-loader',
             options: {
               limit: 8000,
-              publicPath: 'assets',
-              name: 'images/[name].[ext]'
+              name: 'assets/images/[name]-[hash].[ext]'
             }
           }
         ]
@@ -57,7 +57,23 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'css/[name].css'
+      filename: 'assets/css/[name]-[contenthash].css'
+    }),
+
+    new HtmlPlugin({
+      filename: 'index.html',
+      minify:
+        env === 'production'
+          ? {
+              collapseWhitespace: true,
+              removeComments: true,
+              removeRedundantAttributes: true,
+              removeScriptTypeAttributes: true,
+              removeStyleLinkTypeAttributes: true,
+              useShortDoctype: true
+            }
+          : false,
+      template: 'src/index.html'
     })
   ],
   optimization: {

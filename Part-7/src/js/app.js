@@ -11,7 +11,7 @@ const copyIconElem = document.getElementById('copy_icon');
 copyIconElem.src = copyIcon;
 copyIconElem.onclick = () => {
   copyToClipboard(document.getElementById('actual_password').innerText);
-  alert('Copied to clipboard');
+  alert('Copied to clipboard!');
 };
 
 document.getElementById('password_icon').src = passwordIcon;
