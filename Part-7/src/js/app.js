@@ -1,9 +1,9 @@
 import RandomStringGenerator from './utilities/random';
 import copyToClipboard from './utilities/copyToClipboard';
-import './style.scss';
-import passwordIcon from './images/lock-solid.svg';
-import copyIcon from './images/copy-solid.svg';
-import securityIllustration from './images/security.svg';
+import '../scss/app.scss';
+import passwordIcon from '../images/lock-solid.svg';
+import copyIcon from '../images/copy-solid.svg';
+import securityIllustration from '../images/security.svg';
 
 document.getElementById('header_image').src = securityIllustration;
 
