@@ -7,6 +7,8 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const PurgeCssPlugin = require('purgecss-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 
+const HelloWorld = require('./src/js/plugins/HelloWorld');
+
 const env = process.env.NODE_ENV;
 
 module.exports = {
@@ -56,6 +58,10 @@ module.exports = {
     ]
   },
   plugins: [
+    new HelloWorld({
+      message: 'Badge "webpack bundler bender" unlocked!'
+    }),
+
     new MiniCssExtractPlugin({
       filename: 'assets/css/[name]-[contenthash].css'
     }),
