@@ -49,8 +49,5 @@ module.exports = {
         preset: ['default', { discardComments: { removeAll: true } }]
       }
     })
-  ],
-  optimization: {
-    minimizer: [new UglifyJsPlugin()]
-  }
+  ]
 };

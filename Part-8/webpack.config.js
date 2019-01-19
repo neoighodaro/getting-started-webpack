@@ -75,15 +75,10 @@ module.exports = {
           : false,
       template: 'src/index.html'
     })
-  ],
-  optimization: {
-    minimizer: []
-  }
+  ]
 };
 
 if (env === 'production') {
-  module.exports.optimization.minimizer.push(new UglifyJsPlugin());
-
   module.exports.plugins.push(
     new OptimizeCssAssetsPlugin({
       cssProcessorPluginOptions: {

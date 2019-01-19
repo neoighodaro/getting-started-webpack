@@ -36,12 +36,12 @@ module.exports = {
         preset: ['default', { discardComments: { removeAll: true } }]
       }
     })
-  ],
-  optimization: {
-    minimizer: []
-  }
+  ]
+  // optimization: {
+  //   minimizer: []
+  // }
 };
 
 if (env === 'production') {
-  module.exports.optimization.minimizer.push(new UglifyJsPlugin());
+  // module.exports.optimization.minimizer.push(new UglifyJsPlugin());
 }
