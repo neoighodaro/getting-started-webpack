@@ -8,6 +8,7 @@ const PurgeCssPlugin = require('purgecss-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 
 const HelloWorld = require('./src/js/plugins/HelloWorld');
+const CustomManifestPlugin = require('./src/js/plugins/WebpackCustomManifestPlugin');
 
 const env = process.env.NODE_ENV;
 
@@ -60,6 +61,10 @@ module.exports = {
   plugins: [
     new HelloWorld({
       message: 'Badge "webpack bundler bender" unlocked!'
+    }),
+
+    new CustomManifestPlugin({
+      outputPath: path.resolve(__dirname + '/')
     }),
 
     new MiniCssExtractPlugin({
