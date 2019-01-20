@@ -1,0 +1,10 @@
+#app .container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+#app .container h1 {
+  color: #232b2b;
+  text-align: center;
+}
